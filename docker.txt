@@ -1,0 +1,75 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .message-box {
+            text-align: center;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-box">
+        <h1>Hello from Docker!</h1>
+        <p>This is a simple HTML page running inside a container.</p>
+    </div>
+</body>
+</html>
+
+-------------------------------------------------------------#########################################################-----------------------------------------------------------------------
+app.py
+app.py
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World from Flask in Docker!"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
+
+DockerFile for Flask
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY app.py .
+
+RUN    pip     install     flask
+
+EXPOSE     5000
+
+CMD     ["python",  "app.py"]
+
+-----------------------------------------------------------------################################################################----------------------------------------------------------
+Path for nignx
+/usr/share/nginx/html/index.html
+Path for apache
+/usr/local/apache2/htdocs/index.html
+-----------------------------------------------------------###################################################################--------------------------------------------------------------
+
