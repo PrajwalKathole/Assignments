@@ -72,4 +72,9 @@ Path for nignx
 Path for apache
 /usr/local/apache2/htdocs/index.html
 -----------------------------------------------------------###################################################################--------------------------------------------------------------
+ubuntu - docker run -it ubuntu
+nginx - docker run -d -p 80:80 nginx
+MySQL - docker run -d -e MYSQL_ROOT_PASSWORD=1234 MySQL
+mongo - docker run -d -p 27017:27017 mongo
+python - docker run -it python
 
